@@ -35,7 +35,7 @@ A preliminary understanding of gRPC (especially how to write client side code) w
 To complete the workshop, you will need to:
 
 * Install [Golang](https://go.dev/doc/install) or [Python 3](https://www.python.org/downloads/).
-* Clone this repository locally (in a file location of your choice: `git clone https://github.com/bearlyrunning/FindingTheNeedle.git`).
+* Clone this repository locally (in a file location of your choice: `git clone https://github.com/bearlyrunning/FindingTheNeedleWorkshop.git`).
 * Implement the missing code (and unit tests where appropriate), indicated by `<TODO: Implement me!>`.
 
 ### (Golang) Setup and Installing Requirements
