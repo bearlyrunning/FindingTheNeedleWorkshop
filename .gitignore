@@ -1,6 +1,4 @@
 **/.DS_Store
-**/*.binpb
-**/*.json
 **/data/signal/**
 **/detection/detection
 **/enrichment/enrichment
