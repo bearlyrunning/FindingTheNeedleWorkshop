@@ -1,5 +1,4 @@
 **/.DS_Store
-**/data/signal/**
 **/detection/detection
 **/enrichment/enrichment
 **/normalizer/normalizer
