@@ -1,4 +1,7 @@
 **/.DS_Store
+data/**/*.binpb
+data/**/*.json
+/data/signal/**.json
 **/detection/detection
 **/enrichment/enrichment
 **/normalizer/normalizer
