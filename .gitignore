@@ -2,9 +2,9 @@
 **/*.binpb
 **/*.json
 **/data/signal/**
-go/detection/detection
-go/enrichment/enrichment
-go/normalizer/normalizer
+**/detection/detection
+**/enrichment/enrichment
+**/normalizer/normalizer
 grpc/server/server
 **/*_normalized.log
 python/**/__pycache__
