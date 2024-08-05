@@ -1,0 +1,129 @@
+syntax = "proto3";
+
+package normalizedlog;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/bearlyrunning/FindingTheNeedle/go/generated/normalizedlogpb";
+
+message NormalizedLog {
+  oneof msg {
+    DNS dns_log = 1;
+    Netflow netflow_log = 2;
+    Execution execution_log = 3;
+  }
+}
+
+// Normalized DNS log message.
+message DNS {
+  // Timestamp of the DNS query.
+  google.protobuf.Timestamp timestamp = 1;
+
+  // Domain query.
+  string query = 2;
+
+  // DNS query type.
+  string type = 3;
+
+  // Query answer.
+  string answer = 4;
+
+  enum ReturnCode {
+    UNSPECIFIED = 0;
+    NOERROR = 1;
+    FORMERR = 2;
+    SERVFAIL = 3;
+    NXDOMAIN = 4;
+    NOTIMP = 5;
+    REFUSED = 6;
+    YXDOMAIN = 7;
+    XRRSET = 8;
+    NOTAUTH = 9;
+    NOTZONE = 10;
+  }
+
+  // DNS return code.
+  ReturnCode return_code = 5;
+
+  // Source IP.
+  string source_ip = 6;
+
+  // DNS resolver IP.
+  string resolver_ip = 7;
+
+  // Log source.
+  string log_source = 8;
+}
+
+// Normalized netflow log message.
+message Netflow {
+  // Timestamp of the network connection.
+  google.protobuf.Timestamp timestamp = 1;
+
+  // Source IP.
+  string src_ip = 2;
+
+  // Source port.
+  int32 src_port = 3;
+
+  // Destination IP.
+  string dst_ip = 4;
+
+  // Destination port.
+  int32 dst_port = 5;
+
+  // Number of inbound bytes.
+  int64 bytes_in = 6;
+
+  // Number of outbound bytes.
+  int64 bytes_out = 7;
+
+  // Number of inbound packets.
+  int64 packets_in = 8;
+
+  // Number of outbound packets.
+  int64 packets_out = 9;
+
+  // Transport-layer protocols (e.g. icmp, tcp, udp, icmpv6, etc).
+  string protocol = 10;
+
+  // Log source.
+  string log_source = 11;
+}
+
+// Normalized execution log message.
+message Execution {
+  // Timestamp of the process execution.
+  google.protobuf.Timestamp timestamp = 1;
+
+  // Filepath of the binary.
+  string filepath = 2;
+
+  // Full command that was executed.
+  string command = 3;
+
+  // POSIX UID.
+  int64 uid = 4;
+
+  // Process ID.
+  int64 pid = 5;
+
+  // Parent process ID.
+  int64 ppid = 6;
+
+  // Current working directory
+  string cwd = 7;
+
+  // Hostname.
+  string hostname = 8;
+
+  enum Platform {
+    UNSPECIFIED = 0;
+    LINUX = 1;
+    WINDOWS = 2;
+    MAC = 3;
+  }
+
+  // Host platform / operating system.
+  Platform platform = 9;
+}

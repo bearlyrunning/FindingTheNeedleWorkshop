@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package enrichment;
+
+option go_package = "github.com/bearlyrunning/FindingTheNeedle/go/generated/enrichmentpb";
+
+service Enrichment {
+    rpc IPToHost(IP) returns (Host) {}
+    rpc HostToIP(Host) returns (IP) {}
+}
+
+message IP {
+    string ip = 1;
+}
+
+message Host {
+    string name = 1;
+
+    enum Platform {
+        UNSPECIFIED = 0;
+        LINUX = 1;
+        WINDOWS = 2;
+        MAC = 3;
+    }
+
+    Platform platform = 2;
+}

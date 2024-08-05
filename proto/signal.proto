@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package signal;
+
+import "google/protobuf/timestamp.proto";
+import "normalized_log.proto";
+
+option go_package = "github.com/bearlyrunning/FindingTheNeedle/go/generated/signalpb";
+
+message Signal {
+  oneof event {
+    normalizedlog.DNS bad_domain_filtered = 1;
+    BadDomain bad_domain = 2;
+    DNSTunnel dns_tunnel = 3;
+    BrowserSubProc browser_sub_proc = 4;
+  }
+}
+
+// BadDomain detection event message.
+message BadDomain {
+  // Timestamp of the first observed DNS query.
+  google.protobuf.Timestamp timestamp_start = 1;
+
+  // Timestamp of the last observed DNS query.
+  google.protobuf.Timestamp timestamp_end = 2;
+
+  // Bad domain.
+  string bad_domain = 3;
+
+  // Source client IP.
+  string source_ip = 4;
+
+  // Hostname.
+  // Can be left empty. For enrichment only.
+  string hostname = 5;
+
+  repeated normalizedlog.DNS dns_log = 6;
+}
+
+message DNSTunnel {
+  // Timestamp of the first observed netflow.
+  google.protobuf.Timestamp timestamp_start = 1;
+
+  // Timestamp of the last observed netflow.
+  google.protobuf.Timestamp timestamp_end = 2;
+
+  // Tunnel IP.
+  string tunnel_ip = 3;
+
+  // Source client IP.
+  string source_ip = 4;
+
+  // Hostname.
+  // Can be left empty. For enrichment only.
+  string hostname = 5;
+
+  // Total bytes in.
+  int64 bytes_in_total = 6;
+
+  // Total bytes out.
+  int64 bytes_out_total = 7;
+
+  repeated normalizedlog.Netflow netflow_log = 8;
+}
+
+message BrowserSubProc {
+  // Matched anomalous log.
+  normalizedlog.Execution execution = 1;
+
+  // IP address of the source host.
+  // Can be left empty. For enrichment only.
+  string source_ip = 2;
+}
