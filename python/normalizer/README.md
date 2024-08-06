@@ -12,11 +12,11 @@ The locations you need to make code changes can be found by looking for the foll
 <TODO: Implement me!>
 ```
 
-These changes need to take place in separate directories. We recommend completing this section in the following order:
+These changes need to take place in separate files. We recommend completing this section in the following order:
 
-1. `dns/dns.py`, with unit tests in `dns/test_dns.py`.
-2. `netflow/netflow.py`, with unit tests in `netflow/test_netflow.py`.
-3. `execution/execution.py`, with unit tests in `execution/test_execution.py`.
+1. `dns.py`, with unit tests in `test_dns.py`.
+2. `netflow.py`, with unit tests in `test_netflow.py`.
+3. `execution.py`, with unit tests in `test_execution.py`.
 
 ## Input and Output locations
 
@@ -24,9 +24,9 @@ The following table outlines where each normalizer ingests data from, and where 
 
 | **Normalizer** | **Code Location**      | **Input Data Location**            | **Output Data Location**                                                                                         |
 |----------------|------------------------|------------------------------------|------------------------------------------------------------------------------------------------------------------|
-| DNS            | `dns/dns.py`           | `../../data/dns/dns.log`           | Binary: `../../data/dns/dns_normalized.binpb` JSON: `../../data/dns/dns_normalized.json`                         |
-| Execution      | `execution/execution.py` | `../../data/execution/execution.log` | Binary: `../../data/execution/execution_normalized.binpb` JSON: `../../data/execution/execution_normalized.json` |
-| Netflow        | `netflow/netflow.py`     | `../../data/netflow/netflow.log`     | Binary: `../../data/netflow/netflow_normalized.binpb` JSON: `../../data/netflow/netflow_normalized.json`         |
+| DNS            | `dns.py`           | `../../data/dns/dns.log`           | Binary: `../../data/dns/dns_normalized.binpb` JSON: `../../data/dns/dns_normalized.json`                         |
+| Execution      | `execution.py` | `../../data/execution/execution.log` | Binary: `../../data/execution/execution_normalized.binpb` JSON: `../../data/execution/execution_normalized.json` |
+| Netflow        | `netflow.py`     | `../../data/netflow/netflow.log`     | Binary: `../../data/netflow/netflow_normalized.binpb` JSON: `../../data/netflow/netflow_normalized.json`         |
 
 ## Running the normalizers
 

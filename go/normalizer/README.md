@@ -12,11 +12,11 @@ The locations you need to make code changes can be found by looking for the foll
 <TODO: Implement me!>
 ```
 
-These changes need to take place in separate directories. We recommend completing this section in the following order:
+These changes need to take place in separate files. We recommend completing this section in the following order:
 
-1. `dns/dns.go`, with unit tests in `dns/dns_test.go`.
-2. `netflow/netflow.go`, with unit tests in `netflow/netflow_test.go`.
-3. `execution/execution.go`, with unit tests in `execution/execution_test.go`.
+1. `dns.go`, with unit tests in `dns_test.go`.
+2. `netflow.go`, with unit tests in `netflow_test.go`.
+3. `execution.go`, with unit tests in `execution_test.go`.
 
 ## Input and Output locations
 
@@ -24,9 +24,9 @@ The following table outlines where each normalizer ingests data from, and where 
 
 | **Normalizer** | **Code Location**      | **Input Data Location**            | **Output Data Location**                                                                                         |
 |----------------|------------------------|------------------------------------|------------------------------------------------------------------------------------------------------------------|
-| DNS            | `dns/dns.go`           | `../../data/dns/dns.log`           | Binary: `../../data/dns/dns_normalized.binpb` JSON: `../../data/dns/dns_normalized.json`                         |
-| Execution      | `execution/execution.go` | `../../data/execution/execution.log` | Binary: `../../data/execution/execution_normalized.binpb` JSON: `../../data/execution/execution_normalized.json` |
-| Netflow        | `netflow/netflow.go`     | `../../data/netflow/netflow.log`     | Binary: `../../data/netflow/netflow_normalized.binpb` JSON: `../../data/netflow/netflow_normalized.json`         |
+| DNS            | `dns.go`           | `../../data/dns/dns.log`           | Binary: `../../data/dns/dns_normalized.binpb` JSON: `../../data/dns/dns_normalized.json`                         |
+| Execution      | `execution.go` | `../../data/execution/execution.log` | Binary: `../../data/execution/execution_normalized.binpb` JSON: `../../data/execution/execution_normalized.json` |
+| Netflow        | `netflow.go`     | `../../data/netflow/netflow.log`     | Binary: `../../data/netflow/netflow_normalized.binpb` JSON: `../../data/netflow/netflow_normalized.json`         |
 
 ## Running the normalizers
 
