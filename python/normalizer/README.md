@@ -25,8 +25,8 @@ The following table outlines where each normalizer ingests data from, and where 
 | **Normalizer** | **Code Location**      | **Input Data Location**            | **Output Data Location**                                                                                         |
 |----------------|------------------------|------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | DNS            | `dns/dns.py`           | `../../data/dns/dns.log`           | Binary: `../../data/dns/dns_normalized.binpb` JSON: `../../data/dns/dns_normalized.json`                         |
-| Execution      | execution/execution.py | ../../data/execution/execution.log | Binary: `../../data/execution/execution_normalized.binpb` JSON: `../../data/execution/execution_normalized.json` |
-| Netflow        | netflow/netflow.py     | ../../data/netflow/netflow.log     | Binary: `../../data/netflow/netflow_normalized.binpb` JSON: `../../data/netflow/netflow_normalized.json`         |
+| Execution      | `execution/execution.py` | `../../data/execution/execution.log` | Binary: `../../data/execution/execution_normalized.binpb` JSON: `../../data/execution/execution_normalized.json` |
+| Netflow        | `netflow/netflow.py`     | `../../data/netflow/netflow.log`     | Binary: `../../data/netflow/netflow_normalized.binpb` JSON: `../../data/netflow/netflow_normalized.json`         |
 
 ## Running the normalizers
 
