@@ -23,14 +23,14 @@ class TestDNSNormalizer(unittest.TestCase):
                 input = "2024-06-14 00:00:00.000,test_logger_1,10.20.30.40,100.110.120.130,example.com,A,93.184.215.14,0",
                 want = nlpb.NormalizedLog(
                     dns_log=nlpb.DNS(
-                        timestamp=# <TODO: Implement me!>
-                        log_source=# <TODO: Implement me!>
-                        source_ip=# <TODO: Implement me!>
-                        resolver_ip=# <TODO: Implement me!>
-                        query=# <TODO: Implement me!>
-                        type=# <TODO: Implement me!>
-                        answer=# <TODO: Implement me!>
-                        return_code=# <TODO: Implement me!>
+                        timestamp=Timestamp(seconds=1718323200),
+                        log_source="test_logger_1",
+                        source_ip="10.20.30.40",
+                        resolver_ip="100.110.120.130",
+                        query="example.com",
+                        type="A",
+                        answer="93.184.215.14",
+                        return_code=nlpb.DNS.NOERROR
                     )
                 ),
             ),

@@ -36,47 +36,28 @@ class ExecutionNormalizer(normalizer.NormalizerInterface):
             logging.warning("invalid number of fields found; expect 9, found %d: %s",len(fields), line)
             return None
         
-        try:
-            # <TODO: Implement me!>
-            # Parse and populate timestamp using validateTimestamp() in validator.py.
-        except Exception as err:
-            logging.warning("%s, skipping: %s", err, line)
-            return None
-        
+        # <TODO: Implement me!>
+        # Parse and populate timestamp using validateTimestamp() in validator.py.
+
         # <TODO: Implement me!>
         # Parse and populate filepath
         # Parse and populate command
 
-        try:
-            # <TODO: Implement me!>
-            # Parse and populate uid using validateInt() in validator.py.
-        except Exception as err:
-            logging.warning("%s, skipping: %s", err, line)
-            return None
+        # <TODO: Implement me!>
+        # Parse and populate uid using validateInt() in validator.py.
 
-        try:
-            # <TODO: Implement me!>
-            # Parse and populate pid using validateInt() in validator.py.
-        except Exception as err:
-            logging.warning("%s, skipping: %s", err, line)
-            return None
-        
-        try:
-            # <TODO: Implement me!>
-            # Parse and populate ppid using validateInt() in validator.py.
-        except Exception as err:
-            logging.warning("%s, skipping: %s", err, line)
-            return None
+        # <TODO: Implement me!>
+        # Parse and populate pid using validateInt() in validator.py.
+
+        # <TODO: Implement me!>
+        # Parse and populate ppid using validateInt() in validator.py.
+
         
         # <TODO: Implement me!>
         # Parse and populate cwd
         # Parse and populate hostname
 
-        try:
-            # <TODO: Implement me!>
-            # Parse and populate platform using validatePlatform() in validator.py.
-        except Exception as err:
-            logging.warning("%s, skipping: %s", err, line)
-            return None
-        
+        # <TODO: Implement me!>
+        # Parse and populate platform using validatePlatform() in validator.py.
+   
         return log

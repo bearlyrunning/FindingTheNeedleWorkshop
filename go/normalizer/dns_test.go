@@ -22,14 +22,14 @@ func TestDNSNormalizer(t *testing.T) {
 			want: &nlpb.NormalizedLog{
 				Msg: &nlpb.NormalizedLog_DnsLog{
 					DnsLog: &nlpb.DNS{
-						Timestamp:  // <TODO: Implement me!>,
-						Query:      // <TODO: Implement me!>,
-						Type:       // <TODO: Implement me!>,
-						Answer:     // <TODO: Implement me!>,
-						ReturnCode: // <TODO: Implement me!>,
-						SourceIp:   // <TODO: Implement me!>,
-						ResolverIp: // <TODO: Implement me!>,
-						LogSource:  // <TODO: Implement me!>,
+						Timestamp:  &timestamppb.Timestamp{Seconds: 1718323200},
+						Query:      "example.com",
+						Type:       "A",
+						Answer:     "93.184.215.14",
+						ReturnCode: nlpb.DNS_NOERROR,
+						SourceIp:   "10.20.30.40",
+						ResolverIp: "100.110.120.130",
+						LogSource:  "test_logger_1",
 					},
 				},
 			},

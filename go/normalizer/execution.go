@@ -51,34 +51,19 @@ func (en *ExecutionNormalizer) normalize(line string) *nlpb.NormalizedLog {
 		return nil
 	}
 
+	// <TODO: Implement me!> Implement the missing logic below.
+
 	// <TODO: Implement me!>
-	// Implement the validate function in validator.go file.
 	// Parse and return `timestamp` field with validateTimestamp().
-	if err != nil {
-		log.Printf("%v, skipping: %s\n", err, line)
-		return nil
-	}
 
 	// <TODO: Implement me!>
 	// Parse and return `uid` field with validateInt64().
-	if err != nil {
-		log.Printf("%v, skipping: %s\n", err, line)
-		return nil
-	}
 
 	// <TODO: Implement me!>
 	// Parse and return `pid` field with validateInt64().
-	if err != nil {
-		log.Printf("%v, skipping: %s\n", err, line)
-		return nil
-	}
 
 	// <TODO: Implement me!>
 	// Parse and return `ppid` field with validateInt64().
-	if err != nil {
-		log.Printf("%v, skipping: %s\n", err, line)
-		return nil
-	}
 
 	// <TODO: Implement me!>
 	// Parse and return `platform` field with validatePlatform().
