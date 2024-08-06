@@ -22,6 +22,12 @@ These changes need to take place in separate files. We recommend completing this
 
 The following table outlines where each detection rule ingests data from, and where its output is written to:
 
+| **Rule**                         | **Code Location**     | **Input Data Location**                           | **Output Data Location**                  |
+|----------------------------------|-----------------------|---------------------------------------------------|-------------------------------------------|
+| Bad DNS domain resolution        | `bad_domain.py`       | `../../data/dns/dns_normalized.binpb"`            | `../../data/signal/bad_domain.json`       |
+| DNS tunnelling                   | `dns_tunnel.py`       | `../../data/netflow/netflow_normalized.binpb`     | `../../data/signal/dns_tunnel.json`       |
+| Suspicious browser child process | `browser_sub_proc.py` | `../../data/execution/execution_normalized.binpb` | `../../data/signal/browser_sub_proc.json` |
+
 ## Running your detection logic
 
 Run the following command in the local directory:
