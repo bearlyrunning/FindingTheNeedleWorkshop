@@ -1,4 +1,5 @@
 import enricher
+import logging
 from generated import signal_pb2 as spb
 
 class BrowserSubProcEnricher(enricher.EnricherInterface):
@@ -24,3 +25,10 @@ class BrowserSubProcEnricher(enricher.EnricherInterface):
         # <TODO: Implement me!>
 	    # Populate the `source_ip` field in the spb.BrowserSubProc message for all signals.
 	    # Hint: Check the RPC methods supported by enpb.EnrichmentClient in the generated package file.
+        
+        # For each signal, call our HostToIP enrichment.
+        for sig in self.signals:
+            try:
+                print("Implement me!")
+            except Exception as e:
+                logging.warn("failed HostToIP conversion: %s", str(e))

@@ -62,6 +62,6 @@ class BadDomainEnricher(enricher.EnricherInterface):
         enrichedSigs = []
 
         for sig in self.signals:
-            # <TODO: Implement me!>
+            print("Implement me!")
 
         self.signals = enrichedSigs

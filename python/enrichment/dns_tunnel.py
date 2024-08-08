@@ -1,4 +1,5 @@
 import enricher
+import logging
 from generated import enrichment_pb2 as enpb
 from generated import signal_pb2 as spb
 
@@ -25,3 +26,10 @@ class DNSTunnelEnricher(enricher.EnricherInterface):
         # <TODO: Implement me!>
 	    # Populate the `hostname` field in the spb.DNSTunnel message for all signals.
 	    # Hint: Check the RPC methods supported by enpb.EnrichmentClient in the generated package file.
+
+        # For each signal, call our IPToHost enrichment.
+        for sig in self.signals:
+            try:
+                print("Implement me!")
+            except Exception as e:
+                logging.warn("failed IPToHost conversion: %s", str(e))
