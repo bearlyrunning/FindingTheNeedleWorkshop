@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	spb "github.com/bearlyrunning/FindingTheNeedle/go/generated/signalpb"
 )
 
@@ -11,6 +13,12 @@ func (dtd *DNSTunnelDetection) ruleName() string {
 	return dtd.name
 }
 
+// run() function does the following:
+//   - loop through each proto in the /data/netflow/netflow_normalized.binpb or json file
+//     (these protos are saved in bdd.logs.netflow)
+//   - apply detection logic
+//   - output the log as a Signal proto (see /proto/signal.proto) message which
+//     eventually get saved in /data/signal/dns_tunnel.json
 func (dtd *DNSTunnelDetection) run() ([]*spb.Signal, error) {
 	// <TODO: Implement me!>
 	// Find relevant netflow logs indicating potential DNS tunneling behaviour:
@@ -26,5 +34,26 @@ func (dtd *DNSTunnelDetection) run() ([]*spb.Signal, error) {
 	// Hint #2: In your map, construct a key using the values of source and destination IP addresses (for your pairing).
 	// Hint #3: We need to compare traffic volume against a `threshold` - remember to keep a sum of bytes_in and bytes_out to check if we exceed the threshold.
 	// Hint #3: Check the fields you need to populate by inspecting the spb.DNSTunnel protobuf message.
-	return nil, nil
+
+	var sigs []*spb.Signal
+
+	for _, n := range dtd.logs.netflow {
+		fmt.Printf("TODO: Implement me! %v", n)
+	}
+
+	sigs = append(sigs, &spb.Signal{
+		Event: &spb.Signal_DnsTunnel{
+			DnsTunnel: &spb.DNSTunnel{
+				// TimestampStart: ,
+				// TimestampEnd:   ,
+				// SourceIp:       ,
+				// TunnelIp:       ,
+				// BytesInTotal:   ,
+				// BytesOutTotal:  ,
+				// NetflowLog:     logs,
+			},
+		},
+	})
+
+	return sigs, nil
 }

@@ -45,6 +45,12 @@ func (bdd *BadDomainDetection) setFilterRegex() error {
 	return nil
 }
 
+// run() function does the following:
+//   - loop through each proto in the /data/dns/dns_normalized.binpb or json file
+//     (these protos are saved in bdd.logs.dns)
+//   - apply detection logic
+//   - output the log as a Signal proto (see /proto/signal.proto) message which
+//     eventually get saved in /data/signal/bad_domain.json
 func (bdd *BadDomainDetection) run() ([]*spb.Signal, error) {
 	// Set regex for filtering.
 	if err := bdd.setFilterRegex(); err != nil {
@@ -64,5 +70,21 @@ func (bdd *BadDomainDetection) run() ([]*spb.Signal, error) {
 	// Hint #1: Make use of bdd.rr and the `regexp` package.
 	// Hint #2: Aggregation is easier using a map data structure.
 	// Hint #3: Check the fields you need to populate by inspecting the spb.BadDomain protobuf message.
-	return nil, nil
+	var sigs []*spb.Signal
+	for _, log := range bdd.logs.dns {
+		fmt.Printf("TODO: Implement me! %v", log)
+	}
+
+	sigs = append(sigs, &spb.Signal{
+		Event: &spb.Signal_BadDomain{
+			BadDomain: &spb.BadDomain{
+				// TimestampStart: ,
+				// TimestampEnd:   ,
+				// SourceIp:       ,
+				// BadDomain:      ,
+				// DnsLog:         ,
+			},
+		},
+	})
+	return sigs, nil
 }

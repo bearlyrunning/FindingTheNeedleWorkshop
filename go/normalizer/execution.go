@@ -42,6 +42,12 @@ func splitWithEscape(str, sep, esc string) []string {
 	return escapedStrs
 }
 
+// normalize() function does the following:
+// - reads each `line` of /data/execution/execution.log
+// - parses and validates each comma separated field in the log
+// - output the log as a NormalizedLog proto (see /proto/normalized.proto) message which eventually get saved as:
+//   - /data/execution/execution_normalized.binpb
+//   - /data/execution/execution_normalized.json
 func (en *ExecutionNormalizer) normalize(line string) *nlpb.NormalizedLog {
 	fields := splitWithEscape(line, ",", "\\")
 

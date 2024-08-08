@@ -19,6 +19,12 @@ func (nn *NetflowNormalizer) getJsonOutput() string {
 	return nn.jsonOutput
 }
 
+// normalize() function does the following:
+// - reads each `line` of /data/netflow/netflow.log
+// - parses and validates each comma separated field in the log
+// - output the log as a NormalizedLog proto (see /proto/normalized.proto) message which eventually get saved as:
+//   - /data/netflow/netflow_normalized.binpb
+//   - /data/netflow/netflow_normalized.json
 func (nn *NetflowNormalizer) normalize(line string) *nlpb.NormalizedLog {
 	fields := strings.Split(line, ",")
 

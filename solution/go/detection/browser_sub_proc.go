@@ -22,6 +22,7 @@ func (bspd *BrowserSubProcDetection) run() ([]*spb.Signal, error) {
 		browserPids []int64
 		pids        = make(map[int64][]int64)         // map[parent_pid]child_pid
 		pidDetails  = make(map[int64]*nlpb.Execution) // map[pid]execution_log
+		sigs        []*spb.Signal
 	)
 	for _, e := range bspd.logs.execution {
 		pids[e.GetPpid()] = append(pids[e.GetPpid()], e.GetPid())
@@ -31,7 +32,6 @@ func (bspd *BrowserSubProcDetection) run() ([]*spb.Signal, error) {
 		}
 	}
 
-	var sigs []*spb.Signal
 	for _, bp := range browserPids {
 		for _, pid := range pids[bp] {
 			e := pidDetails[pid]
