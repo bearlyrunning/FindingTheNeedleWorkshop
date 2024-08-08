@@ -23,7 +23,12 @@ class NetflowNormalizer(normalizer.NormalizerInterface):
     def getJsonOutput(self) -> str:
         return self.jsonOutput
     
-    # Normalize log source line-by-line.
+    # normalize() function does the following:
+    # - reads each `line` of /data/netflow/netflow.log
+    # - parses and validates each comma separated field in the log
+    # - output the log as a NormalizedLog proto (see /proto/normalized.proto) message which eventually get saved as:
+    #   - /data/netflow/netflow_normalized.binpb
+    #   - /data/netflow/netflow_normalized.json
     def normalize(self, line="") -> nlpb.NormalizedLog:
         # Initialise protobuf log structures
         log = nlpb.NormalizedLog()

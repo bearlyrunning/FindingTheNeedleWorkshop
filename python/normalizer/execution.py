@@ -24,7 +24,12 @@ class ExecutionNormalizer(normalizer.NormalizerInterface):
     def getJsonOutput(self) -> str:
         return self.jsonOutput
     
-    # Normalize log source line-by-line.
+    # normalize() function does the following:
+    # - reads each `line` of /data/execution/execution.log
+    # - parses and validates each comma separated field in the log
+    # - output the log as a NormalizedLog proto (see /proto/normalized.proto) message which eventually get saved as:
+    #   - /data/execution/execution_normalized.binpb
+    #   - /data/execution/execution_normalized.json
     def normalize(self, line="") -> nlpb.NormalizedLog:
         # Initialise protobuf log structures
         log = nlpb.NormalizedLog()

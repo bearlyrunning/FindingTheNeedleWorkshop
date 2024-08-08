@@ -26,9 +26,9 @@ class DNSNormalizer(normalizer.NormalizerInterface):
     # normalize() function does the following:
     # - reads each `line` of /data/dns/dns.log
     # - parses and validates each comma separated field in the log
-    # - output the log as a NormalizedLog proto message which eventually get saved as:
-    #   - /data/dns/dns.binpb
-    #   - /data/dns/dns.json
+    # - output the log as a NormalizedLog proto (see /proto/normalized.proto) message which eventually get saved as:
+    #   - /data/dns/dns_normalized.binpb
+    #   - /data/dns/dns_normalized.json
     def normalize(self, line="") -> nlpb.NormalizedLog:
         # Initialise protobuf log structures
         log = nlpb.NormalizedLog()

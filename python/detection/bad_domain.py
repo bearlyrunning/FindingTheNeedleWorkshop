@@ -35,6 +35,12 @@ class BadDomainDetection(detection.DetectionInterface):
         lst.close()
 
     # Run detection logic.
+    # run() function does the following:
+    #   - loop through each proto in the /data/dns/dns_normalized.binpb or json file
+    #     (these protos are saved in self.logs.dns)
+    #   - apply detection logic
+    #   - output the log as a Signal proto (see /proto/signal.proto) message which
+    #     eventually get saved in /data/signal/bad_domain.json
     def run(self) -> list[spb.Signal]:
         # Set regex for filtering.
         try:
@@ -55,4 +61,20 @@ class BadDomainDetection(detection.DetectionInterface):
         # Hint #1: import re, and use self.regStr.
         # Hint #2: Aggregation is easier using a dict!
         # Hint #3: Check the fields you need to populate by inspecting the spb.BadDomain protobuf message.
-        return None
+
+        sigs = []
+
+        for log in self.logs.dns:
+            print("TODO: Implement me!")
+
+        # Create aggregated entry per source_ip.
+        sigs.append(spb.Signal(
+            bad_domain=spb.BadDomain(
+                # timestamp_start=,
+                # timestamp_end=,
+                # source_ip=,
+                # bad_domain=,
+                # dns_log=
+            )
+        ))
+        return sigs

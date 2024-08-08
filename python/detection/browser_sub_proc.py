@@ -14,6 +14,12 @@ class BrowserSubProcDetection(detection.DetectionInterface):
         return self.name
 
     # Run detection logic.
+    # run() function does the following:
+    #   - loop through each proto in the /data/execution/execution_normalized.binpb or json file
+    #     (these protos are saved in self.logs.execution)
+    #   - apply detection logic
+    #   - output the log as a Signal proto (see /proto/signal.proto) message which
+    #     eventually get saved in /data/signal/browser_sub_proc.json
     def run(self) -> list[spb.Signal]:
         # <TODO: Implement me!>
         # Find logs that represent suspicious browser child processes.
@@ -35,4 +41,16 @@ class BrowserSubProcDetection(detection.DetectionInterface):
         #          ```
         # Hint #2: import re, use BROWSER_REGEX and BROWSER_SUB_PROC_REGEX
         # Hint #3: Check the fields you need to populate by inspecting the spb.BrowserSubProc protobuf message.
-        return None
+
+        sigs = []
+
+        for log in self.logs.execution:
+            print("TODO: Implement me!")
+
+        sigs.append(spb.Signal(
+            browser_sub_proc=spb.BrowserSubProc(
+                # execution = 
+            )
+        ))
+
+        return sigs
