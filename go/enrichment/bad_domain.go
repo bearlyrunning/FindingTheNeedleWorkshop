@@ -42,8 +42,8 @@ func (bde *BadDomainEnricher) enrich(ctx context.Context, c enpb.EnrichmentClien
 
 	var enrichedSigs []*spb.Signal
 
-	for _, sig := range bde.signals {
-		// <TODO: Implement me!>
-	}
+	// for _, sig := range bde.signals {
+	// 	// <TODO: Implement me!>
+	// }
 	bde.signals = enrichedSigs
 }
