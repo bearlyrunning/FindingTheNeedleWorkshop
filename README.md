@@ -1,6 +1,6 @@
 # Finding the Needle: An Introduction to Detection Engineering
 
-This repository contains course materials for the 'Finding the Needle: An Introduction to Detection Engineering" workshop, delivered at [DEF CON 32](https://defcon.org/html/defcon-32/dc-32-workshops.html#54217) and [The Diana Initiative 2024](https://www.dianainitiative.org/workshops-2024/finding-the-needle/).
+This repository contains course materials for the 'Finding the Needle: An Introduction to Detection Engineering" workshop, delivered at [DEF CON 32](https://defcon.org/html/defcon-32/dc-32-workshops.html#54217), [The Diana Initiative 2024](https://www.dianainitiative.org/workshops-2024/finding-the-needle/), and [BSides Melbourne 2024](https://www.bsidesmelbourne.com/2024-training-course-ftn.html).
 
 This workshop can be completed in either Golang or Python (3), or both! (Note, however, that we do not support Python 2.7!)
 
